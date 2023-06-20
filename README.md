@@ -45,13 +45,13 @@ Encoding tokens: It provides a method called encode_token that takes a list of s
 
 Decoding tokens: It offers a method called decode_token that takes a sequence of token IDs and decodes them back into human-readable tokens. This method supports both dictionary-based decoding and decoding using the PreTrainedTokenizerFast library.
 
-Adding noise tokens: The Modified_myTokenizer class extends the original encode_token method by adding a randomly generated noise token to each input sequence. The noise token is inserted at a random position between the [START] token and the [END] token. This allows the tokenizer to handle noisy or corrupted input data.
+Adding noise tokens: The Modified_myTokenizer class extends the original encode_token method by adding a randomly generated noise token to each input sequence. The noise token is inserted at a random position between the <START> token and the <END>token. This allows the tokenizer to handle noisy or corrupted input data.
 
 * * *
 ## p_sample
-The 'p_sample' function incorporates x_{t-2} in addition to x_{t-1} when generating the noise for sampling from the model. 
+The 'p_sample' function incorporates x_t2 in addition to x_t1 when generating the noise for sampling from the model. 
 
-The function first calculates the mean and variance of the model's output at x_{t-1} using the p_mean_variance function. It then generates two noise tensors, noise_t1 and noise_t2, using th.randn_like based on x_t1 and x_t2 respectively. If top_p is specified and greater than 0, the noise tensors are clipped using the top-p sampling method. 
+The function first calculates the mean and variance of the model's output at x_t1 using the p_mean_variance function. It then generates two noise tensors, noise_t1 and noise_t2, using th.randn_like based on x_t1 and x_t2 respectively. If top_p is specified and greater than 0, the noise tensors are clipped using the top-p sampling method. 
 
 The code ensures that the absolute values of the noise tensors are within the top-p range. A nonzero mask is created based on the value of t to indicate whether noise should be added. If t is 0, no noise is added. The final sample tensor is calculated by adding the mean and variance weighted noise tensors to the model's mean output. 
 
