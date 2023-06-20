@@ -2,9 +2,11 @@
 
 * * *
 ## Dataset
-We created training data using [wikitext dataset](https://huggingface.co/datasets/wikitext). The dataset used is "wikitext-103-v1" and this data consists of a total of 1,801,350 train sets and 3,760 validation sets.
+We created training data using [NQ](https://github.com/google-research-datasets/natural-questions), [kilt datasets](https://github.com/facebookresearch/KILT), [wikitext dataset](https://huggingface.co/datasets/wikitext). The dataset used is "wikitext-103-v1" and this data consists of a total of 1,801,350 train sets and 3,760 validation sets.
 
-From the sentences of the dataset, the [Questgen.ai](https://github.com/ramsrigouthamg/Questgen.ai) FAQ generation function was used to generate sources corresponding to each target.
+Datasets are formed of 4 types, kilt-eli5, kilt-NQ, full-NQ(1 question for many paragraphs), qgendatas(many questions for 1 paragraph).
+Generation process of kilt-eli5, kilt-NQ and full-NQ are included in datasets folder and kilt folder.
+For qgendatas, we processed question generation to make appropriate data formats. From the sentences of the dataset, the [Questgen.ai](https://github.com/ramsrigouthamg/Questgen.ai) FAQ generation function was used to generate sources corresponding to each target.
 
 The code to generate these data is qgen.py. To reproduce data generation, it is possible to execute as follows.
 
