@@ -34,4 +34,6 @@ bash train.sh
 ```
 At this time, various hyperparameters and device settings for train can be modified in `.scripts/train.sh` and applied to train.
 
+We provide modified version of 'p_sample' and 'myTokenizer'. 'p_sample' function incorporates x_{t-2} in addition to x_{t-1} when generating the noise for sampling from the model. 'myTokenizer class provides tokenization and detokenization functionalities, and it also introduces the ability to add noise tokens to the input sequences.
+
 * * *
